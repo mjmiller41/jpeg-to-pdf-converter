@@ -328,7 +328,7 @@ export default function ConverterPage() {
       </Card>
        <footer className="mt-8 text-center">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} FileConverter. All rights reserved.
+          &copy; {new Date().getFullYear()} JPEG to PDF Converter. All rights reserved.
         </p>
       </footer>
     </div>

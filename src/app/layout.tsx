@@ -16,6 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="title" content="Free Online JPEG to PDF and PDF to JPEG Converter" />
+        <meta name="description" content="Easily convert JPEG to PDF and PDF to JPEG online for free. Fast, secure, and high-quality image and document conversion. Try our web app today!" />
+        <meta name="keywords" content="JPEG to PDF,PDF to JPEG,convert,online,free,web app,image to document,document to image" />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
