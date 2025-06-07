@@ -1,7 +1,8 @@
 
 import type {Metadata} from 'next';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"; 
+import { Toaster } from "@/components/ui/toaster";
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Free Online JPEG to PDF and PDF to JPEG Converter | Fast & Easy',
@@ -25,6 +26,18 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+        <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=G-G8W9DMH8RG`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-G8W9DMH8RG');
+        `}
+      </Script>
       </head>
       <body className="font-body antialiased">
         {children}

@@ -34,15 +34,15 @@ export default function ConverterPage() {
     }
   }, []);
   
-  const processFiles = useCallback((incomingFiles: FileList | null) => {
+  const processFiles = useCallback((incomingFiles: File[] | FileList | null) => {
     handleClearSelection(); // Clear previous selection before processing new files
-
     if (!incomingFiles || incomingFiles.length === 0) {
       return;
     }
 
     const filesArray = Array.from(incomingFiles);
     let validFiles: File[] = [];
+
     let invalidFileMessages: string[] = [];
 
     if (conversionMode === 'jpegToPdf') {
@@ -86,21 +86,49 @@ export default function ConverterPage() {
         }
       }
     } else { // pdfToJpeg mode
+      // Filter for valid PDF files
       validFiles = filesArray.filter(file => file.type === 'application/pdf');
+      
+      // Identify and collect messages for invalid files
       filesArray.forEach(file => {
         if (file.type !== 'application/pdf') {
           invalidFileMessages.push(`${file.name}: Not a PDF file.`);
         }
       });
+      
+      // Set selected files (only valid ones)
       setSelectedFiles(validFiles);
-      setJpegPreviewUrls([]); 
-
+      
       if (validFiles.length > 0) {
-        if (invalidFileMessages.length > 0) {
-          toast({ variant: "destructive", title: "Some Files Invalid", description: invalidFileMessages.join(' ') + " Only PDF files were kept." });
-        } else {
+        // Generate JPEG previews for PDF files
+        Promise.all(validFiles.map(async (file) => {
+          try {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+            const page = await pdfDoc.getPage(1);
+            const viewport = page.getViewport({ scale: 0.5 }); // Smaller scale for preview
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            if (!context) throw new Error('Could not get canvas context');
+            await page.render({ canvasContext: context, viewport: viewport }).promise;
+            return canvas.toDataURL('image/jpeg');
+          } catch (error) {
+            console.error(`Error generating preview for ${file.name}:`, error);
+            return ''; // Return empty string for failed previews
+          }
+        }))
+        .then(urls => {
+          setJpegPreviewUrls(urls);
+          if (invalidFileMessages.length > 0) {
+            toast({ variant: "destructive", title: "Some Files Invalid", description: invalidFileMessages.join(' ') + " Only PDF files were kept." });
+          }
           toast({ title: `${validFiles.length} PDF(s) Selected`, description: `Ready for JPEG conversion.` });
-        }
+        })
+        .catch(error => { // Catch potential errors from Promise.all
+           toast({ variant: "destructive", title: "Preview Generation Error", description: error.message });
+        });
       } else {
           if (invalidFileMessages.length > 0) {
              toast({ variant: "destructive", title: "Invalid Files", description: invalidFileMessages.join(' ') + " Please upload PDF files." });
@@ -112,11 +140,8 @@ export default function ConverterPage() {
   }, [conversionMode, toast, handleClearSelection]);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    processFiles(event.target.files);
-     // Reset file input to allow selecting the same file(s) again
-    if(event.target) {
-        event.target.value = ""; 
-    }
+    const files = event.target.files ? Array.from(event.target.files) : null;
+    processFiles(files);
   };
 
   const handleDrop = useCallback((event: DragEvent<HTMLDivElement>) => {
