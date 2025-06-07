@@ -1,11 +1,11 @@
 
 import type {Metadata} from 'next';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"; // Added for global toast notifications
+import { Toaster } from "@/components/ui/toaster"; 
 
 export const metadata: Metadata = {
-  title: 'JPEG to PDF Converter',
-  description: 'Easily convert your JPEG images to PDF files online.',
+  title: 'File Converter',
+  description: 'Easily convert your JPEG images to PDF files or PDF files to JPEG images online.',
 };
 
 export default function RootLayout({
