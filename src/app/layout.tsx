@@ -4,8 +4,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"; 
 
 export const metadata: Metadata = {
-  title: 'File Converter',
-  description: 'Easily convert your JPEG images to PDF files or PDF files to JPEG images online.',
+  title: 'Free Online JPEG to PDF and PDF to JPEG Converter | Fast & Easy',
+  description: 'Easily convert JPEG images to PDF files and PDF documents (first page) to JPEG images online. Free, fast, and secure file conversion.',
 };
 
 export default function RootLayout({

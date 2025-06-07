@@ -23,9 +23,6 @@ export default function ConverterPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // Set workerSrc for pdfjs-dist. This is required for the library to work.
-    // Using a CDN version of the worker.
-    // Ensure the version matches the installed pdfjs-dist version if issues arise.
     pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
   }, []);
 
@@ -221,9 +218,11 @@ export default function ConverterPage() {
       <Card className="w-full max-w-lg shadow-2xl rounded-xl overflow-hidden">
         <CardHeader className="bg-primary/10 p-6">
           <div className="flex items-center space-x-3">
-            <Repeat className="w-10 h-10 text-primary" /> {/* Generic conversion icon */}
+            <Repeat className="w-10 h-10 text-primary" />
             <div>
-              <CardTitle className="text-2xl md:text-3xl font-headline text-primary">{pageTitle}</CardTitle>
+              <CardTitle className="text-2xl md:text-3xl font-headline text-primary">
+                <h1>{pageTitle}</h1>
+              </CardTitle>
               <CardDescription className="text-foreground/80">{pageDescription}</CardDescription>
             </div>
           </div>
@@ -335,4 +334,3 @@ export default function ConverterPage() {
     </div>
   );
 }
-
