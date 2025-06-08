@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://{username}.github.io/jpeg-to-pdf-converter",
   "scripts": {
-    "dev": "next dev --turbopack -p 9002",
+    "dev": "next dev -p 9002 --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "predeploy": "npm run build",
