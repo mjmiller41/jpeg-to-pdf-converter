@@ -41,7 +41,7 @@ const nextConfig: CustomNextConfig = {
   // Remove basePath and assetPrefix during development
   ...(process.env.NODE_ENV === 'production' && {
     basePath: '',
-    assetPrefix: '',
+    assetPrefix: '/',
   }),
   images: {
     unoptimized: true,
