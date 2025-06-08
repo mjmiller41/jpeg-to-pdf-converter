@@ -12,7 +12,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 import { useToast } from "@/hooks/use-toast";
 
 type ConversionMode = 'jpegToPdf' | 'pdfToJpeg';
-
+type ConversionMode = 'jpgToPdf' | 'pdfToJpg';
 export default function ConverterPage() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [jpegPreviewUrls, setJpegPreviewUrls] = useState<string[]>([]);
@@ -36,7 +36,7 @@ export default function ConverterPage() {
   
   const processFiles = useCallback((incomingFiles: File[] | FileList | null) => {
     handleClearSelection(); // Clear previous selection before processing new files
-    if (!incomingFiles || incomingFiles.length === 0) {
+    if (!incomingFiles || incomingFiles.length === 0 || (conversionMode === 'jpgToPdf' && Array.from(incomingFiles).every(file => file.type !== 'image/jpeg')) || (conversionMode === 'pdfToJpg' && Array.from(incomingFiles).every(file => file.type !== 'application/pdf'))) {
       return;
     }
 
@@ -45,11 +45,11 @@ export default function ConverterPage() {
 
     let invalidFileMessages: string[] = [];
 
-    if (conversionMode === 'jpegToPdf') {
+    if (conversionMode === 'jpgToPdf') {
       validFiles = filesArray.filter(file => file.type === 'image/jpeg');
       filesArray.forEach(file => {
         if (file.type !== 'image/jpeg') {
-          invalidFileMessages.push(`${file.name}: Not a JPEG file.`);
+          invalidFileMessages.push(`${file.name}: Not a JPG file.`);
         }
       });
 
@@ -65,14 +65,14 @@ export default function ConverterPage() {
         .then(urls => {
           setJpegPreviewUrls(urls);
           setSelectedFiles(validFiles);
-          if (invalidFileMessages.length > 0) {
+          if (invalidFileMessages.length > 0 && validFiles.length > 0) {
             toast({ variant: "destructive", title: "Some Files Invalid", description: invalidFileMessages.join(' ') + " Only JPEG files were kept." });
           } else {
             toast({ title: `${validFiles.length} JPEG(s) Selected`, description: `Ready for PDF conversion.` });
           }
         })
         .catch(error => {
-          setJpegPreviewUrls([]);
+ setJpegPreviewUrls([]);
           setSelectedFiles([]);
           toast({ variant: "destructive", title: "File Read Error", description: error.message });
         });
@@ -80,10 +80,10 @@ export default function ConverterPage() {
         setJpegPreviewUrls([]);
         setSelectedFiles([]);
         if (invalidFileMessages.length > 0) {
-            toast({ variant: "destructive", title: "Invalid Files", description: invalidFileMessages.join(' ') + " Please upload JPEG files." });
+            toast({ variant: "destructive", title: "Invalid Files", description: invalidFileMessages.join(' ') + " Please upload JPG files." });
         } else {
-             toast({ variant: "destructive", title: "No JPEG Files", description: "Please upload JPEG files." });
-        }
+             toast({ variant: "destructive", title: "No JPG Files", description: "Please upload JPG files." });
+        }        
       }
     } else { // pdfToJpeg mode
       // Filter for valid PDF files
@@ -91,7 +91,7 @@ export default function ConverterPage() {
       
       // Identify and collect messages for invalid files
       filesArray.forEach(file => {
-        if (file.type !== 'application/pdf') {
+ if (file.type !== 'application/pdf') {
           invalidFileMessages.push(`${file.name}: Not a PDF file.`);
         }
       });
@@ -100,7 +100,7 @@ export default function ConverterPage() {
       setSelectedFiles(validFiles);
       
       if (validFiles.length > 0) {
-        // Generate JPEG previews for PDF files
+        // Generate JPG previews for PDF files
         Promise.all(validFiles.map(async (file) => {
           try {
             const arrayBuffer = await file.arrayBuffer();
@@ -114,7 +114,7 @@ export default function ConverterPage() {
             if (!context) throw new Error('Could not get canvas context');
             await page.render({ canvasContext: context, viewport: viewport }).promise;
             return canvas.toDataURL('image/jpeg');
-          } catch (error) {
+ } catch (error) {
             console.error(`Error generating preview for ${file.name}:`, error);
             return ''; // Return empty string for failed previews
           }
@@ -124,7 +124,7 @@ export default function ConverterPage() {
           if (invalidFileMessages.length > 0) {
             toast({ variant: "destructive", title: "Some Files Invalid", description: invalidFileMessages.join(' ') + " Only PDF files were kept." });
           }
-          toast({ title: `${validFiles.length} PDF(s) Selected`, description: `Ready for JPEG conversion.` });
+          toast({ title: `${validFiles.length} PDF(s) Selected`, description: `Ready for JPG conversion.` });
         })
         .catch(error => { // Catch potential errors from Promise.all
            toast({ variant: "destructive", title: "Preview Generation Error", description: error.message });
@@ -132,7 +132,7 @@ export default function ConverterPage() {
       } else {
           if (invalidFileMessages.length > 0) {
              toast({ variant: "destructive", title: "Invalid Files", description: invalidFileMessages.join(' ') + " Please upload PDF files." });
-          } else {
+ } else {
               toast({ variant: "destructive", title: "No PDF Files", description: "Please upload PDF files." });
           }
       }
@@ -169,8 +169,8 @@ export default function ConverterPage() {
   }
 
   const convertToPdf = async () => {
-    if (selectedFiles.length === 0 || jpegPreviewUrls.length !== selectedFiles.length) {
-      toast({ variant: "destructive", title: "No Valid Files", description: "Please select JPEG file(s) first." });
+    if (selectedFiles.length === 0) {
+      toast({ variant: "destructive", title: "No Valid Files", description: "Please select JPG file(s) first." });
       return;
     }
 
@@ -218,12 +218,12 @@ export default function ConverterPage() {
         const x = (pageWidth - newWidth) / 2;
         const y = (pageHeight - newHeight) / 2;
 
-        pdf.addImage(img, 'JPEG', x, y, newWidth, newHeight);
+        pdf.addImage(img, 'JPG', x, y, newWidth, newHeight);
       });
       
       const outputFileName = selectedFiles.length > 1 ? 'converted_images.pdf' : `${selectedFiles[0].name.replace(/\.[^/.]+$/, "")}.pdf`;
       pdf.save(outputFileName);
-      toast({ title: "Conversion Successful", description: `${selectedFiles.length} JPEG(s) have been converted to ${outputFileName} and downloaded.` });
+      toast({ title: "Conversion Successful", description: `${selectedFiles.length} JPG(s) have been converted to ${outputFileName} and downloaded.` });
     } catch (e) {
       console.error(e);
       toast({ variant: "destructive", title: "PDF Conversion Error", description: e instanceof Error ? e.message : "An unexpected error occurred." });
@@ -231,8 +231,8 @@ export default function ConverterPage() {
       setIsConverting(false);
     }
   };
-
-  const convertToJpeg = async () => {
+ 
+  const convertToJpg = async () => {
     if (selectedFiles.length === 0) {
       toast({ variant: "destructive", title: "No PDF Files", description: "Please select PDF file(s) first." });
       return;
@@ -252,7 +252,7 @@ export default function ConverterPage() {
           const canvas = document.createElement('canvas');
           const context = canvas.getContext('2d');
           canvas.height = viewport.height;
-          canvas.width = viewport.width;
+ canvas.width = viewport.width;
 
           if (!context) {
             throw new Error("Could not get canvas context for " + file.name);
@@ -278,12 +278,12 @@ export default function ConverterPage() {
       await Promise.all(conversionPromises);
 
       if (successCount > 0) {
-        toast({ title: "Conversion Complete", description: `${successCount} PDF(s) converted to JPEG. ${errorCount > 0 ? errorCount + ' failed.' : ''}` });
+        toast({ title: "Conversion Complete", description: `${successCount} PDF(s) converted to JPG. ${errorCount > 0 ? errorCount + ' failed.' : ''}` });
       }
       if (errorCount > 0 && successCount === 0) {
-        toast({ variant: "destructive", title: "JPEG Conversion Failed", description: "All PDF to JPEG conversions failed." });
+        toast({ variant: "destructive", title: "JPG Conversion Failed", description: "All PDF to JPG conversions failed." });
       }
-
+      
 
     } catch (e) { // Catch errors from Promise.all itself, though individual errors are caught above
       console.error(e);
@@ -295,9 +295,9 @@ export default function ConverterPage() {
   };
 
   const handleConvert = () => {
-    if (conversionMode === 'jpegToPdf') {
+    if (conversionMode === 'jpgToPdf') {
       convertToPdf();
-    } else {
+    } else { // pdfToJpeg
       convertToJpeg();
     }
   };
@@ -307,15 +307,15 @@ export default function ConverterPage() {
     confirmAndClearSelection(); // Clear selection when switching modes
   };
 
-  const pageTitle = conversionMode === 'jpegToPdf' ? "JPEG to PDF Converter" : "PDF to JPEG Converter";
-  const pageDescription = conversionMode === 'jpegToPdf' 
-    ? "Upload JPEG file(s) to convert them into a single PDF document."
-    : "Upload PDF file(s) to convert the first page of each to a JPEG image.";
-  const inputAccept = conversionMode === 'jpegToPdf' ? "image/jpeg" : "application/pdf";
+  const pageTitle = conversionMode === 'jpgToPdf' ? "JPG to PDF Converter" : "PDF to JPG Converter";
+  const pageDescription = conversionMode === 'jpgToPdf' 
+    ? "Upload JPG file(s) to convert them into a single PDF document."
+    : "Upload PDF file(s) to convert the first page of each to a JPG image.";
+  const inputAccept = conversionMode === 'jpgToPdf' ? "image/jpeg" : "application/pdf";
   const dropzoneMainText = "Click to upload file(s) or drag and drop";
-  const dropzoneHint = conversionMode === 'jpegToPdf' ? "JPEG files only. Max 10MB per file suggested." : "PDF files only. Max 10MB per file suggested.";
+  const dropzoneHint = conversionMode === 'jpgToPdf' ? "JPG files only. Max 10MB per file suggested." : "PDF files only. Max 10MB per file suggested.";
   
-  const buttonText = conversionMode === 'jpegToPdf' 
+  const buttonText = conversionMode === 'jpgToPdf' 
     ? "Convert & Download PDF" 
     : (selectedFiles.length > 1 ? "Convert & Download JPEGs" : "Convert & Download JPEG");
 
@@ -326,7 +326,7 @@ export default function ConverterPage() {
       <Card className="w-full max-w-lg shadow-2xl rounded-xl overflow-hidden">
         <CardHeader className="bg-primary/10 p-6">
           <div className="flex items-center space-x-3">
-            <Repeat className="w-10 h-10 text-primary" />
+            <img className="w-20 h-20 text-primary" src="/logo-64x64-transparent.png" alt="jpg to pdf image" />
             <div>
               <CardTitle className="text-2xl md:text-3xl font-headline text-primary">
                 <h1>{pageTitle}</h1>
@@ -338,14 +338,14 @@ export default function ConverterPage() {
         <CardContent className="p-6 space-y-6">
           <div className="flex justify-center space-x-2 mb-4">
             <Button 
-              variant={conversionMode === 'jpegToPdf' ? 'default' : 'outline'} 
-              onClick={() => handleModeSwitch('jpegToPdf')}
+              variant={conversionMode === 'jpgToPdf' ? 'default' : 'outline'} 
+              onClick={() => handleModeSwitch('jpgToPdf')}
               className="flex-1"
             >
               JPEG to PDF
             </Button>
             <Button 
-              variant={conversionMode === 'pdfToJpeg' ? 'default' : 'outline'} 
+              variant={conversionMode === 'pdfToJpg' ? 'default' : 'outline'} 
               onClick={() => handleModeSwitch('pdfToJpeg')}
               className="flex-1"
             >
@@ -383,7 +383,7 @@ export default function ConverterPage() {
           ) : (
             <div className="space-y-4">
               {showSingleJpegPreview && (
-                <div className="relative w-full aspect-video rounded-lg overflow-hidden border-2 border-primary/20 shadow-inner bg-muted/20">
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden border-2 border-primary/20 shadow-inner bg-muted/20" >
                   <NextImage 
                     src={jpegPreviewUrls[0]} 
                     alt="Preview of selected JPEG" 
@@ -401,8 +401,8 @@ export default function ConverterPage() {
                 <ul className="list-none pl-0 text-xs text-muted-foreground max-h-32 overflow-y-auto space-y-1">
                   {selectedFiles.map((file, index) => (
                     <li key={index} className="truncate flex items-center" title={file.name}>
-                      {conversionMode === 'jpegToPdf' && file.type === 'image/jpeg' && <NextImage src={jpegPreviewUrls[index] || ''} alt="" width={16} height={16} className="w-4 h-4 mr-2 object-cover rounded-sm" />}
-                      {conversionMode === 'pdfToJpeg' && file.type === 'application/pdf' && <FileText className="w-4 h-4 mr-2 shrink-0" />}
+                      {conversionMode === 'jpgToPdf' && file.type === 'image/jpeg' && <NextImage src={jpegPreviewUrls[index] || ''} alt="" width={16} height={16} className="w-4 h-4 mr-2 object-cover rounded-sm" />}
+                      {conversionMode === 'pdfToJpg' && file.type === 'application/pdf' && <FileText className="w-4 h-4 mr-2 shrink-0" />}
                       <span className="flex-1 truncate">{file.name}</span> 
                       <span className="ml-2 whitespace-nowrap">({(file.size / 1024).toFixed(2)} KB)</span>
                     </li>
@@ -447,7 +447,7 @@ export default function ConverterPage() {
       </Card>
        <footer className="mt-8 text-center">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} JPEGtoPDF & PDFtoJPEG Converter. All rights reserved.
+          &copy; {new Date().getFullYear()} JPGtoPDF & PDFtoJPG Converter. All rights reserved.
         </p>
       </footer>
     </div>

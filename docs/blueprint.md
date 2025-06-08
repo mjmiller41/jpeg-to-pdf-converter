@@ -1,10 +1,10 @@
-# **App Name**: JPEGtoPDF
+# **App Name**: JPGtoPDF
 
 ## Core Features:
 
-- JPEG Upload: Accept user upload of a JPEG file via drag and drop or file selector.
-- JPEG Preview: Preview the uploaded JPEG file before conversion.
-- JPEG to PDF Conversion: Convert the uploaded JPEG to a PDF file on the client side.
+- JPG Upload: Accept user upload of a JPG file via drag and drop or file selector.
+- JPG Preview: Preview the uploaded JPG file before conversion.
+- JPG to PDF Conversion: Convert the uploaded JPG to a PDF file on the client side.
 - PDF Download: Allow the user to download the converted PDF file.
 
 ## Style Guidelines:
