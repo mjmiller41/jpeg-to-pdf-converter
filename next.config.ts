@@ -40,8 +40,8 @@ const nextConfig: CustomNextConfig = {
   output: 'export',
   // Remove basePath and assetPrefix during development
   ...(process.env.NODE_ENV === 'production' && {
-    basePath: '/jpeg-to-pdf-converter',
-    assetPrefix: '/jpeg-to-pdf-converter',
+    basePath: '/',
+    assetPrefix: '/',
   }),
   images: {
     unoptimized: true,
