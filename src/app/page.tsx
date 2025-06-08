@@ -11,14 +11,13 @@ import jsPDF from 'jspdf';
 import * as pdfjsLib from 'pdfjs-dist';
 import { useToast } from "@/hooks/use-toast";
 
-type ConversionMode = 'jpegToPdf' | 'pdfToJpeg';
 type ConversionMode = 'jpgToPdf' | 'pdfToJpg';
 export default function ConverterPage() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [jpegPreviewUrls, setJpegPreviewUrls] = useState<string[]>([]);
   const [isConverting, setIsConverting] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [conversionMode, setConversionMode] = useState<ConversionMode>('jpegToPdf');
+  const [conversionMode, setConversionMode] = useState<ConversionMode>('jpgToPdf');
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -33,7 +32,7 @@ export default function ConverterPage() {
       fileInputRef.current.value = "";
     }
   }, []);
-  
+
   const processFiles = useCallback((incomingFiles: File[] | FileList | null) => {
     handleClearSelection(); // Clear previous selection before processing new files
     if (!incomingFiles || incomingFiles.length === 0 || (conversionMode === 'jpgToPdf' && Array.from(incomingFiles).every(file => file.type !== 'image/jpeg')) || (conversionMode === 'pdfToJpg' && Array.from(incomingFiles).every(file => file.type !== 'application/pdf'))) {
@@ -62,43 +61,43 @@ export default function ConverterPage() {
             reader.readAsDataURL(file);
           });
         }))
-        .then(urls => {
-          setJpegPreviewUrls(urls);
-          setSelectedFiles(validFiles);
-          if (invalidFileMessages.length > 0 && validFiles.length > 0) {
-            toast({ variant: "destructive", title: "Some Files Invalid", description: invalidFileMessages.join(' ') + " Only JPEG files were kept." });
-          } else {
-            toast({ title: `${validFiles.length} JPEG(s) Selected`, description: `Ready for PDF conversion.` });
-          }
-        })
-        .catch(error => {
- setJpegPreviewUrls([]);
-          setSelectedFiles([]);
-          toast({ variant: "destructive", title: "File Read Error", description: error.message });
-        });
+          .then(urls => {
+            setJpegPreviewUrls(urls);
+            setSelectedFiles(validFiles);
+            if (invalidFileMessages.length > 0 && validFiles.length > 0) {
+              toast({ variant: "destructive", title: "Some Files Invalid", description: invalidFileMessages.join(' ') + " Only JPEG files were kept." });
+            } else {
+              toast({ title: `${validFiles.length} JPEG(s) Selected`, description: `Ready for PDF conversion.` });
+            }
+          })
+          .catch(error => {
+            setJpegPreviewUrls([]);
+            setSelectedFiles([]);
+            toast({ variant: "destructive", title: "File Read Error", description: error.message });
+          });
       } else {
         setJpegPreviewUrls([]);
         setSelectedFiles([]);
         if (invalidFileMessages.length > 0) {
-            toast({ variant: "destructive", title: "Invalid Files", description: invalidFileMessages.join(' ') + " Please upload JPG files." });
+          toast({ variant: "destructive", title: "Invalid Files", description: invalidFileMessages.join(' ') + " Please upload JPG files." });
         } else {
-             toast({ variant: "destructive", title: "No JPG Files", description: "Please upload JPG files." });
-        }        
+          toast({ variant: "destructive", title: "No JPG Files", description: "Please upload JPG files." });
+        }
       }
     } else { // pdfToJpeg mode
       // Filter for valid PDF files
       validFiles = filesArray.filter(file => file.type === 'application/pdf');
-      
+
       // Identify and collect messages for invalid files
       filesArray.forEach(file => {
- if (file.type !== 'application/pdf') {
+        if (file.type !== 'application/pdf') {
           invalidFileMessages.push(`${file.name}: Not a PDF file.`);
         }
       });
-      
+
       // Set selected files (only valid ones)
       setSelectedFiles(validFiles);
-      
+
       if (validFiles.length > 0) {
         // Generate JPG previews for PDF files
         Promise.all(validFiles.map(async (file) => {
@@ -114,27 +113,27 @@ export default function ConverterPage() {
             if (!context) throw new Error('Could not get canvas context');
             await page.render({ canvasContext: context, viewport: viewport }).promise;
             return canvas.toDataURL('image/jpeg');
- } catch (error) {
+          } catch (error) {
             console.error(`Error generating preview for ${file.name}:`, error);
             return ''; // Return empty string for failed previews
           }
         }))
-        .then(urls => {
-          setJpegPreviewUrls(urls);
-          if (invalidFileMessages.length > 0) {
-            toast({ variant: "destructive", title: "Some Files Invalid", description: invalidFileMessages.join(' ') + " Only PDF files were kept." });
-          }
-          toast({ title: `${validFiles.length} PDF(s) Selected`, description: `Ready for JPG conversion.` });
-        })
-        .catch(error => { // Catch potential errors from Promise.all
-           toast({ variant: "destructive", title: "Preview Generation Error", description: error.message });
-        });
+          .then(urls => {
+            setJpegPreviewUrls(urls);
+            if (invalidFileMessages.length > 0) {
+              toast({ variant: "destructive", title: "Some Files Invalid", description: invalidFileMessages.join(' ') + " Only PDF files were kept." });
+            }
+            toast({ title: `${validFiles.length} PDF(s) Selected`, description: `Ready for JPG conversion.` });
+          })
+          .catch(error => { // Catch potential errors from Promise.all
+            toast({ variant: "destructive", title: "Preview Generation Error", description: error.message });
+          });
       } else {
-          if (invalidFileMessages.length > 0) {
-             toast({ variant: "destructive", title: "Invalid Files", description: invalidFileMessages.join(' ') + " Please upload PDF files." });
- } else {
-              toast({ variant: "destructive", title: "No PDF Files", description: "Please upload PDF files." });
-          }
+        if (invalidFileMessages.length > 0) {
+          toast({ variant: "destructive", title: "Invalid Files", description: invalidFileMessages.join(' ') + " Please upload PDF files." });
+        } else {
+          toast({ variant: "destructive", title: "No PDF Files", description: "Please upload PDF files." });
+        }
       }
     }
   }, [conversionMode, toast, handleClearSelection]);
@@ -144,25 +143,25 @@ export default function ConverterPage() {
     processFiles(files);
   };
 
-  const handleDrop = useCallback((event: DragEvent<HTMLDivElement>) => {
+  const handleDrop = useCallback((event: DragEvent<HTMLLabelElement>) => {
     event.preventDefault();
     event.stopPropagation();
     setIsDragging(false);
     processFiles(event.dataTransfer.files);
   }, [processFiles]);
 
-  const handleDragOver = useCallback((event: DragEvent<HTMLDivElement>) => {
+  const handleDragOver = useCallback((event: DragEvent<HTMLLabelElement>) => {
     event.preventDefault();
     event.stopPropagation();
     if (!isDragging) setIsDragging(true);
   }, [isDragging]);
 
-  const handleDragLeave = useCallback((event: DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = useCallback((event: DragEvent<HTMLLabelElement>) => {
     event.preventDefault();
     event.stopPropagation();
     setIsDragging(false);
   }, []);
-  
+
   const confirmAndClearSelection = () => {
     handleClearSelection();
     toast({ title: "Selection Cleared", description: "You can now upload new files." });
@@ -186,10 +185,10 @@ export default function ConverterPage() {
 
       const imageLoadPromises = jpegPreviewUrls.map(dataUrl => {
         return new Promise<HTMLImageElement>((resolve, reject) => {
-            const img = document.createElement('img');
-            img.onload = () => resolve(img);
-            img.onerror = () => reject(new Error(`Failed to load one of the images for PDF conversion.`));
-            img.src = dataUrl;
+          const img = document.createElement('img');
+          img.onload = () => resolve(img);
+          img.onerror = () => reject(new Error(`Failed to load one of the images for PDF conversion.`));
+          img.src = dataUrl;
         });
       });
 
@@ -197,30 +196,30 @@ export default function ConverterPage() {
 
       loadedImages.forEach((img, index) => {
         if (index > 0) {
-            pdf.addPage();
+          pdf.addPage();
         }
-        
+
         const imgWidth = img.naturalWidth;
         const imgHeight = img.naturalHeight;
-        
+
         let newWidth, newHeight;
         const imgRatio = imgWidth / imgHeight;
         const pageRatio = usableWidth / usableHeight;
 
         if (imgRatio > pageRatio) { // Image is wider than page
-            newWidth = usableWidth;
-            newHeight = newWidth / imgRatio;
+          newWidth = usableWidth;
+          newHeight = newWidth / imgRatio;
         } else { // Image is taller than page
-            newHeight = usableHeight;
-            newWidth = newHeight * imgRatio;
+          newHeight = usableHeight;
+          newWidth = newHeight * imgRatio;
         }
-        
+
         const x = (pageWidth - newWidth) / 2;
         const y = (pageHeight - newHeight) / 2;
 
         pdf.addImage(img, 'JPG', x, y, newWidth, newHeight);
       });
-      
+
       const outputFileName = selectedFiles.length > 1 ? 'converted_images.pdf' : `${selectedFiles[0].name.replace(/\.[^/.]+$/, "")}.pdf`;
       pdf.save(outputFileName);
       toast({ title: "Conversion Successful", description: `${selectedFiles.length} JPG(s) have been converted to ${outputFileName} and downloaded.` });
@@ -231,7 +230,7 @@ export default function ConverterPage() {
       setIsConverting(false);
     }
   };
- 
+
   const convertToJpg = async () => {
     if (selectedFiles.length === 0) {
       toast({ variant: "destructive", title: "No PDF Files", description: "Please select PDF file(s) first." });
@@ -246,21 +245,21 @@ export default function ConverterPage() {
         try {
           const arrayBuffer = await file.arrayBuffer();
           const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-          const page = await pdfDoc.getPage(1); 
-          
-          const viewport = page.getViewport({ scale: 2.0 }); 
+          const page = await pdfDoc.getPage(1);
+
+          const viewport = page.getViewport({ scale: 2.0 });
           const canvas = document.createElement('canvas');
           const context = canvas.getContext('2d');
           canvas.height = viewport.height;
- canvas.width = viewport.width;
+          canvas.width = viewport.width;
 
           if (!context) {
             throw new Error("Could not get canvas context for " + file.name);
           }
 
           await page.render({ canvasContext: context, viewport: viewport }).promise;
-          const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.9); 
-          
+          const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.9);
+
           const link = document.createElement('a');
           link.href = jpegDataUrl;
           link.download = `${file.name.replace(/\.[^/.]+$/, "")}_page1.jpg`;
@@ -283,7 +282,7 @@ export default function ConverterPage() {
       if (errorCount > 0 && successCount === 0) {
         toast({ variant: "destructive", title: "JPG Conversion Failed", description: "All PDF to JPG conversions failed." });
       }
-      
+
 
     } catch (e) { // Catch errors from Promise.all itself, though individual errors are caught above
       console.error(e);
@@ -298,28 +297,28 @@ export default function ConverterPage() {
     if (conversionMode === 'jpgToPdf') {
       convertToPdf();
     } else { // pdfToJpeg
-      convertToJpeg();
+      convertToJpg();
     }
   };
-  
+
   const handleModeSwitch = (newMode: ConversionMode) => {
     setConversionMode(newMode);
     confirmAndClearSelection(); // Clear selection when switching modes
   };
 
   const pageTitle = conversionMode === 'jpgToPdf' ? "JPG to PDF Converter" : "PDF to JPG Converter";
-  const pageDescription = conversionMode === 'jpgToPdf' 
+  const pageDescription = conversionMode === 'jpgToPdf'
     ? "Upload JPG file(s) to convert them into a single PDF document."
     : "Upload PDF file(s) to convert the first page of each to a JPG image.";
   const inputAccept = conversionMode === 'jpgToPdf' ? "image/jpeg" : "application/pdf";
   const dropzoneMainText = "Click to upload file(s) or drag and drop";
   const dropzoneHint = conversionMode === 'jpgToPdf' ? "JPG files only. Max 10MB per file suggested." : "PDF files only. Max 10MB per file suggested.";
-  
-  const buttonText = conversionMode === 'jpgToPdf' 
-    ? "Convert & Download PDF" 
+
+  const buttonText = conversionMode === 'jpgToPdf'
+    ? "Convert & Download PDF"
     : (selectedFiles.length > 1 ? "Convert & Download JPEGs" : "Convert & Download JPEG");
 
-  const showSingleJpegPreview = conversionMode === 'jpegToPdf' && selectedFiles.length === 1 && jpegPreviewUrls.length === 1;
+  const showSingleJpegPreview = conversionMode === 'jpgToPdf' && selectedFiles.length === 1 && jpegPreviewUrls.length === 1;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 md:p-8 bg-background text-foreground">
@@ -337,16 +336,16 @@ export default function ConverterPage() {
         </CardHeader>
         <CardContent className="p-6 space-y-6">
           <div className="flex justify-center space-x-2 mb-4">
-            <Button 
-              variant={conversionMode === 'jpgToPdf' ? 'default' : 'outline'} 
+            <Button
+              variant={conversionMode === 'jpgToPdf' ? 'default' : 'outline'}
               onClick={() => handleModeSwitch('jpgToPdf')}
               className="flex-1"
             >
               JPEG to PDF
             </Button>
-            <Button 
-              variant={conversionMode === 'pdfToJpg' ? 'default' : 'outline'} 
-              onClick={() => handleModeSwitch('pdfToJpeg')}
+            <Button
+              variant={conversionMode === 'pdfToJpg' ? 'default' : 'outline'}
+              onClick={() => handleModeSwitch('pdfToJpg')}
               className="flex-1"
             >
               PDF to JPEG
@@ -356,9 +355,7 @@ export default function ConverterPage() {
           {selectedFiles.length === 0 ? (
             <label
               htmlFor="file-upload"
-              className={`flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer 
-                         ${isDragging ? 'border-primary bg-primary/10' : 'border-primary/30 hover:border-primary hover:bg-primary/5'} 
-                         transition-all duration-200 ease-in-out`}
+              className={`flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer ${isDragging ? 'border-primary bg-primary/10' : 'border-primary/30 hover:border-primary hover:bg-primary/5'} transition-all duration-200 ease-in-out`}
               onDrop={handleDrop}
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
@@ -370,11 +367,11 @@ export default function ConverterPage() {
                 </p>
                 <p className="text-xs text-muted-foreground">{dropzoneHint}</p>
               </div>
-              <Input 
-                id="file-upload" 
-                type="file" 
-                className="hidden" 
-                onChange={handleFileChange} 
+              <Input
+                id="file-upload"
+                type="file"
+                className="hidden"
+                onChange={handleFileChange}
                 accept={inputAccept}
                 ref={fileInputRef}
                 multiple // Allow multiple file selection
@@ -384,16 +381,16 @@ export default function ConverterPage() {
             <div className="space-y-4">
               {showSingleJpegPreview && (
                 <div className="relative w-full aspect-video rounded-lg overflow-hidden border-2 border-primary/20 shadow-inner bg-muted/20" >
-                  <NextImage 
-                    src={jpegPreviewUrls[0]} 
-                    alt="Preview of selected JPEG" 
-                    fill 
+                  <NextImage
+                    src={jpegPreviewUrls[0]}
+                    alt="Preview of selected JPEG"
+                    fill
                     className="object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
               )}
-              
+
               <div className="p-4 border-2 border-primary/20 rounded-lg bg-muted/20 shadow-inner">
                 <p className="text-sm font-medium text-foreground mb-2">
                   {selectedFiles.length} file(s) selected:
@@ -403,28 +400,28 @@ export default function ConverterPage() {
                     <li key={index} className="truncate flex items-center" title={file.name}>
                       {conversionMode === 'jpgToPdf' && file.type === 'image/jpeg' && <NextImage src={jpegPreviewUrls[index] || ''} alt="" width={16} height={16} className="w-4 h-4 mr-2 object-cover rounded-sm" />}
                       {conversionMode === 'pdfToJpg' && file.type === 'application/pdf' && <FileText className="w-4 h-4 mr-2 shrink-0" />}
-                      <span className="flex-1 truncate">{file.name}</span> 
+                      <span className="flex-1 truncate">{file.name}</span>
                       <span className="ml-2 whitespace-nowrap">({(file.size / 1024).toFixed(2)} KB)</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-               <div className="flex items-center justify-between">
-                <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    onClick={confirmAndClearSelection} 
-                    className="text-destructive hover:text-destructive hover:bg-destructive/10"
-                    aria-label="Clear selection"
-                  >
-                    <Trash2 className="w-4 h-4 mr-2" /> Clear All
-                  </Button>
-                </div>
+              <div className="flex items-center justify-between">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={confirmAndClearSelection}
+                  className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                  aria-label="Clear selection"
+                >
+                  <Trash2 className="w-4 h-4 mr-2" /> Clear All
+                </Button>
+              </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button 
-                  onClick={handleConvert} 
-                  disabled={isConverting || selectedFiles.length === 0} 
+                <Button
+                  onClick={handleConvert}
+                  disabled={isConverting || selectedFiles.length === 0}
                   className="flex-1 py-3 text-base group"
                   size="lg"
                 >
@@ -440,12 +437,12 @@ export default function ConverterPage() {
           )}
         </CardContent>
         <CardFooter className="p-6 bg-secondary/20 border-t">
-            <p className="text-xs text-center text-muted-foreground w-full">
-                Your files are processed locally in your browser and are never uploaded to any server.
-            </p>
+          <p className="text-xs text-center text-muted-foreground w-full">
+            Your files are processed locally in your browser and are never uploaded to any server.
+          </p>
         </CardFooter>
       </Card>
-       <footer className="mt-8 text-center">
+      <footer className="mt-8 text-center">
         <p className="text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} JPGtoPDF & PDFtoJPG Converter. All rights reserved.
         </p>
@@ -454,4 +451,3 @@ export default function ConverterPage() {
   );
 }
 
-    
