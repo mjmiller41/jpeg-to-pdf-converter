@@ -9,6 +9,7 @@ import NextImage from 'next/image';
 import jsPDF from 'jspdf';
 import * as pdfjsLib from 'pdfjs-dist';
 import { useToast } from "@/hooks/use-toast";
+import JSZip from 'jszip';
 
 type ConversionMode = 'jpgToPdf' | 'pdfToJpg';
 export default function ConverterPage() {
@@ -34,7 +35,11 @@ export default function ConverterPage() {
 
   const processFiles = useCallback((incomingFiles: File[] | FileList | null) => {
     handleClearSelection(); // Clear previous selection before processing new files
-    if (!incomingFiles || incomingFiles.length === 0 || (conversionMode === 'jpgToPdf' && Array.from(incomingFiles).every(file => file.type !== 'image/jpeg')) || (conversionMode === 'pdfToJpg' && Array.from(incomingFiles).every(file => file.type !== 'application/pdf'))) {
+    if (!incomingFiles || incomingFiles.length === 0 ||
+      (conversionMode === 'jpgToPdf' &&
+        Array.from(incomingFiles).every(file => file.type !== 'image/jpeg')) ||
+      (conversionMode === 'pdfToJpg' &&
+        Array.from(incomingFiles).every(file => file.type !== 'application/pdf'))) {
       return;
     }
 
@@ -240,53 +245,135 @@ export default function ConverterPage() {
     let errorCount = 0;
 
     try {
-      const conversionPromises = selectedFiles.map(async (file) => {
+      const zip = new JSZip();
+
+      // Process all PDF files
+      for (const file of selectedFiles) {
         try {
           const arrayBuffer = await file.arrayBuffer();
           const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-          const page = await pdfDoc.getPage(1);
+          const totalPages = pdfDoc.numPages;
 
-          const viewport = page.getViewport({ scale: 2.0 });
-          const canvas = document.createElement('canvas');
-          const context = canvas.getContext('2d');
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
+          if (totalPages === 1 && selectedFiles.length === 1) {
+            // Single page, single file - direct download without ZIP
+            const page = await pdfDoc.getPage(1);
+            const viewport = page.getViewport({ scale: 2.0 });
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
 
-          if (!context) {
-            throw new Error("Could not get canvas context for " + file.name);
+            if (!context) throw new Error('Could not get canvas context');
+
+            await page.render({
+              canvasContext: context,
+              viewport: viewport
+            }).promise;
+
+            const imageUrl = canvas.toDataURL('image/jpeg', 0.9);
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = `${file.name.replace('.pdf', '')}.jpg`;
+            link.click();
+
+            successCount++;
+            continue;
           }
 
-          await page.render({ canvasContext: context, viewport: viewport }).promise;
-          const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.9);
+          // Multiple pages or multiple files - add to ZIP
+          if (totalPages > 1) {
+            // Create folder for multi-page PDFs
+            const folder = zip.folder(file.name.replace('.pdf', ''));
 
-          const link = document.createElement('a');
-          link.href = jpegDataUrl;
-          link.download = `${file.name.replace(/\.[^/.]+$/, "")}_page1.jpg`;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
+            for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+              const page = await pdfDoc.getPage(pageNum);
+              const viewport = page.getViewport({ scale: 2.0 });
+              const canvas = document.createElement('canvas');
+              const context = canvas.getContext('2d');
+              canvas.height = viewport.height;
+              canvas.width = viewport.width;
+
+              if (!context) throw new Error('Could not get canvas context');
+
+              await page.render({
+                canvasContext: context,
+                viewport: viewport
+              }).promise;
+
+              const imageUrl = canvas.toDataURL('image/jpeg', 0.9);
+              const imageData = imageUrl.split(',')[1];
+              folder?.file(`page-${pageNum}.jpg`, imageData, { base64: true });
+            }
+          } else {
+            // Single page PDF - add directly to ZIP root
+            const page = await pdfDoc.getPage(1);
+            const viewport = page.getViewport({ scale: 2.0 });
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            if (!context) throw new Error('Could not get canvas context');
+
+            await page.render({
+              canvasContext: context,
+              viewport: viewport
+            }).promise;
+
+            const imageUrl = canvas.toDataURL('image/jpeg', 0.9);
+            const imageData = imageUrl.split(',')[1];
+            zip.file(`${file.name.replace('.pdf', '')}.jpg`, imageData, { base64: true });
+          }
+
           successCount++;
         } catch (fileError) {
           console.error(`Error converting ${file.name}:`, fileError);
           errorCount++;
-          // Optionally, show a toast for each error or collect messages
         }
-      });
+      }
 
-      await Promise.all(conversionPromises);
+      // Generate and download ZIP if we have multiple files or pages
+      if (successCount > 0 && (selectedFiles.length > 1 || selectedFiles.some(async file => {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        return pdfDoc.numPages > 1;
+      }))) {
+        const content = await zip.generateAsync({ type: 'blob' });
+        const zipUrl = URL.createObjectURL(content);
+        const link = document.createElement('a');
+        link.href = zipUrl;
+
+        // Create ZIP filename from first and last PDF names
+        const zipName = selectedFiles.length > 1
+          ? `${selectedFiles[0].name.replace('.pdf', '')}-${selectedFiles[selectedFiles.length - 1].name.replace('.pdf', '')}.zip`
+          : `${selectedFiles[0].name.replace('.pdf', '')}-pages.zip`;
+
+        link.download = zipName;
+        link.click();
+        URL.revokeObjectURL(zipUrl);
+      }
 
       if (successCount > 0) {
-        toast({ title: "Conversion Complete", description: `${successCount} PDF(s) converted to JPG. ${errorCount > 0 ? errorCount + ' failed.' : ''}` });
+        toast({
+          title: "Conversion Complete",
+          description: `${successCount} PDF(s) converted. ${errorCount > 0 ? `${errorCount} failed.` : ''}`
+        });
       }
       if (errorCount > 0 && successCount === 0) {
-        toast({ variant: "destructive", title: "JPG Conversion Failed", description: "All PDF to JPG conversions failed." });
+        toast({
+          variant: "destructive",
+          title: "Conversion Failed",
+          description: "All PDF to JPG conversions failed."
+        });
       }
 
-
-    } catch (e) { // Catch errors from Promise.all itself, though individual errors are caught above
+    } catch (e) {
       console.error(e);
-      const errorMessage = e instanceof Error ? e.message : "An unexpected error occurred during the batch process.";
-      toast({ variant: "destructive", title: "JPEG Conversion Error", description: errorMessage });
+      toast({
+        variant: "destructive",
+        title: "Conversion Error",
+        description: e instanceof Error ? e.message : "An unexpected error occurred."
+      });
     } finally {
       setIsConverting(false);
     }
@@ -303,6 +390,16 @@ export default function ConverterPage() {
   const handleModeSwitch = (newMode: ConversionMode) => {
     setConversionMode(newMode);
     confirmAndClearSelection(); // Clear selection when switching modes
+  };
+
+  // Helper function to read file as data URL
+  const readFileAsDataURL = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
   };
 
   const pageTitle = conversionMode === 'jpgToPdf' ? "JPG to PDF Converter" : "PDF to JPG Converter";
@@ -368,12 +465,12 @@ export default function ConverterPage() {
               </div>
               <Input
                 id="file-upload"
-                type="file"
                 className="hidden"
-                onChange={handleFileChange}
+                type="file"
+                multiple
                 accept={inputAccept}
                 ref={fileInputRef}
-                multiple // Allow multiple file selection
+                onChange={handleFileChange}
               />
             </label>
           ) : (
