@@ -324,7 +324,7 @@ export default function ConverterPage() {
       <Card className="w-full max-w-lg shadow-2xl rounded-xl overflow-hidden">
         <CardHeader className="bg-primary/10 p-6">
           <div className="flex items-center space-x-3">
-            <img className="w-20 h-20 text-primary" src="/logo-64x64-transparent.png" alt="jpg to pdf image" />
+            <img className="w-20 h-20 text-primary" src="logo-64x64-transparent.png" alt="jpg to pdf image" />
             <div>
               <CardTitle className="text-2xl md:text-3xl font-headline text-primary">
                 <h1>{pageTitle}</h1>
