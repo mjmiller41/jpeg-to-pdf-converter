@@ -11,7 +11,8 @@
 !.yarn/versions
 
 # production
-.parcel-cache
+.parcel-cache/
+
 
 # misc
 .DS_Store
