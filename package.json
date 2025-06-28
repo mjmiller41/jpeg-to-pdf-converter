@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run clean && parcel --port 4000",
     "build": "npm run clean && parcel build",
-    "clean": "rm -rf dist/*",
+    "clean": "rm -rf dist/* && rm -rf .parcel-cache/*",
     "deploy": "touch dist/.nojekyll && gh-pages -d dist"
   },
   "dependencies": {
