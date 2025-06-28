@@ -3045,7 +3045,7 @@
 97/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/css-color-function.js1751085475917717159 0
 81/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/regexp/dot-all.js1751085476261723421 0
 88/home/michael/jpeg-to-pdf-converter/node_modules/core-js/proposals/decorator-metadata.js1751085476197722256 0
-137/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/index.es.6720d133.js1751089403953086246 0
+137/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/index.es.6720d133.js1751089987463177879 0
 85/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/object/is-extensible.js1751085476841733978 0
 92/home/michael/jpeg-to-pdf-converter/node_modules/html2canvas/dist/lib/css/types/angle.js.map1751085476061719780 0
 80/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/regions/YT.js1751085476457726988 0
@@ -3155,7 +3155,7 @@
 78/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/profiler/src/index.js1751085475489709368 0
 80/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/array/find-last.js1751085476593729464 0
 112/home/michael/jpeg-to-pdf-converter/node_modules/html2canvas/dist/lib/css/property-descriptors/text-transform.js1751085476045719489 0
-126/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/HEAD1751089403909085516 0
+126/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/HEAD1751089987431177311 0
 93/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/xml-serializer.js1751085476457726988 0
 93/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/css-textshadow.js1751085476033719271 0
 67/home/michael/jpeg-to-pdf-converter/node_modules/jszip/package.json1751085475805715121 0
@@ -3812,7 +3812,7 @@
 77/home/michael/jpeg-to-pdf-converter/node_modules/core-js/es/array/includes.js1751085476741732157 0
 79/home/michael/jpeg-to-pdf-converter/node_modules/performance-now/.tm_properties1751085475489709368 0
 74/home/michael/jpeg-to-pdf-converter/node_modules/canvg/lib/Parser.d.ts.map1751085475813715266 0
-116/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git1751089403945086114 1
+116/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git1751089987459177808 1
 74/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/regions1751085476461727061 1
 78/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features.js1751085476109720654 0
 89/home/michael/jpeg-to-pdf-converter/node_modules/core-js/features/typed-array/from-hex.js1751085476657730629 0
@@ -3990,7 +3990,7 @@
 102/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/background-position-x-y.js1751085475769714465 0
 91/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/core/src/requests/TargetRequest.js1751085476037719343 0
 86/home/michael/jpeg-to-pdf-converter/node_modules/@swc/helpers/cjs/_sliced_to_array.cjs1751085475773714538 0
-171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/09/d3315220aef5459ac000e6d0343b38e91f0f821751089403973086578 0
+171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/09/d3315220aef5459ac000e6d0343b38e91f0f821751089987471178021 0
 66/home/michael/jpeg-to-pdf-converter/node_modules/core-js/README.md1751085477153739657 0
 67/home/michael/jpeg-to-pdf-converter/node_modules/async/mapValues.js1751086141217758687 0
 77/home/michael/jpeg-to-pdf-converter/node_modules/core-js/es/date/to-string.js1751085477117739001 0
@@ -4107,7 +4107,7 @@
 91/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/wasm-signext.js1751085476437726624 0
 76/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/reporter-tracer/lib1751085475429708277 1
 68/home/michael/jpeg-to-pdf-converter/node_modules/escalade/index.d.ts1751085475529710097 0
-74/home/michael/jpeg-to-pdf-converter/dist/jpeg-to-pdf-converter.ee39b03f.js1751089881589302594 0
+74/home/michael/jpeg-to-pdf-converter/dist/jpeg-to-pdf-converter.ee39b03f.js1751090134917809416 0
 70/home/michael/jpeg-to-pdf-converter/node_modules/escalade/package.json1751085475477709151 0
 102/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/css-backgroundblendmode.js1751085475901716869 0
 85/home/michael/jpeg-to-pdf-converter/node_modules/core-js/es/disposable-stack/index.js1751085476769732668 0
@@ -4138,7 +4138,7 @@
 61/home/michael/jpeg-to-pdf-converter/node_modules/btoa/test.js1751085475517709879 0
 80/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/regions/GE.js1751085476137721163 0
 66/home/michael/jpeg-to-pdf-converter/node_modules/jszip/lib/utf8.js1751085475789714830 0
-128/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/config1751089404013087242 0
+128/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/config1751089987487178306 0
 133/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/packed-refs1751086901776756148 0
 81/home/michael/jpeg-to-pdf-converter/node_modules/pdfjs-dist/build/pdf.sandbox.mjs1751085476817733541 0
 109/home/michael/jpeg-to-pdf-converter/node_modules/html2canvas/dist/types/css/property-descriptors/display.d.ts1751085476289723930 0
@@ -4229,7 +4229,7 @@
 93/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/css-cross-fade.js1751085475929717378 0
 83/home/michael/jpeg-to-pdf-converter/node_modules/type-fest/ts41/delimiter-case.d.ts1751085475565710752 0
 66/home/michael/jpeg-to-pdf-converter/node_modules/semver/preload.js1751085475665712572 0
-150/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/jpeg-to-pdf-converter.ee39b03f.js1751089403957086313 0
+150/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/jpeg-to-pdf-converter.ee39b03f.js1751089987463177879 0
 65/home/michael/jpeg-to-pdf-converter/node_modules/jszip/lib/nodejs1751085475765714392 1
 84/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/asmjs.js1751085475725713664 0
 92/home/michael/jpeg-to-pdf-converter/node_modules/html2canvas/dist/lib/render/renderer.js.map1751085476209722474 0
@@ -4752,7 +4752,7 @@
 90/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/textencoder.js1751085476405726042 0
 97/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/core/test/requests/DevDepRequest.test.js1751085475853715994 0
 86/home/michael/jpeg-to-pdf-converter/node_modules/pdfjs-dist/cmaps/Adobe-Japan1-0.bcmap1751085475701713228 0
-50/home/michael/jpeg-to-pdf-converter/dist/.nojekyll1751089402529062611 0
+50/home/michael/jpeg-to-pdf-converter/dist/.nojekyll1751089986043152641 0
 97/home/michael/jpeg-to-pdf-converter/node_modules/@babel/runtime/helpers/skipFirstGeneratorNext.js1751085475957717887 0
 80/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/regions/WS.js1751085476453726916 0
 77/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/math/expm1.js1751085476549728663 0
@@ -4840,7 +4840,7 @@
 64/home/michael/jpeg-to-pdf-converter/node_modules/json5/README.md1751085475621711771 0
 92/home/michael/jpeg-to-pdf-converter/node_modules/fast-glob/out/providers/matchers/matcher.js1751086141189758182 0
 94/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/reporter-dev-server/src/NodeRunner.js1751085475529710097 0
-40/home/michael/jpeg-to-pdf-converter/dist1751089881589302594 1
+40/home/michael/jpeg-to-pdf-converter/dist1751090134917809416 1
 62/home/michael/jpeg-to-pdf-converter/node_modules/node-releases1751085475525710024 1
 85/home/michael/jpeg-to-pdf-converter/node_modules/pdfjs-dist/cmaps/UniJIS-UCS2-V.bcmap1751085475945717669 0
 91/home/michael/jpeg-to-pdf-converter/node_modules/performance-now/lib/performance-now.js.map1751085475477709151 0
@@ -4913,12 +4913,12 @@
 89/home/michael/jpeg-to-pdf-converter/node_modules/core-js/modules/esnext.map.delete-all.js1751085476489727571 0
 82/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/data-view/index.js1751085476757732449 0
 71/home/michael/jpeg-to-pdf-converter/node_modules/jszip/LICENSE.markdown1751085475813715266 0
-140/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/html2canvas.ac6f8c4e.js1751089403953086246 0
+140/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/html2canvas.ac6f8c4e.js1751089987463177879 0
 76/home/michael/jpeg-to-pdf-converter/node_modules/readable-stream/readable.js1751085475597711334 0
 81/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/instance/pad-end.js1751085476961736163 0
 93/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/battery-status.js1751085475773714538 0
 85/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/symbol/async-dispose.js1751085475933717451 0
-48/home/michael/jpeg-to-pdf-converter/package.json1751089871301121113 0
+48/home/michael/jpeg-to-pdf-converter/package.json1751090088004970028 0
 91/home/michael/jpeg-to-pdf-converter/node_modules/reusify/benchmarks/createNoCodeFunction.js1751086141129757100 0
 72/home/michael/jpeg-to-pdf-converter/node_modules/@lezer/common/README.md1751085475593711263 0
 66/home/michael/jpeg-to-pdf-converter/node_modules/atob/package.json1751085475421708131 0
@@ -5077,11 +5077,11 @@
 101/home/michael/jpeg-to-pdf-converter/node_modules/@swc/helpers/src/_class_private_field_loose_base.mjs1751085476269723566 0
 79/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/array/splice.js1751085477069738128 0
 84/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/utils/src/getCertificate.js1751085475633711991 0
-46/home/michael/jpeg-to-pdf-converter/.gitignore1751088968982301190 0
+46/home/michael/jpeg-to-pdf-converter/.gitignore1751090101297207671 0
 53/home/michael/jpeg-to-pdf-converter/node_modules/btoa1751085475513709806 1
 80/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/regions/WF.js1751085476453726916 0
 81/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/url-search-params1751085476817733541 1
-64/home/michael/jpeg-to-pdf-converter/dist/html2canvas.ac6f8c4e.js1751089881585302522 0
+64/home/michael/jpeg-to-pdf-converter/dist/html2canvas.ac6f8c4e.js1751090134369799599 0
 104/home/michael/jpeg-to-pdf-converter/node_modules/html2canvas/dist/lib/css/types/__tests__/image-tests.js1751085475973718179 0
 87/home/michael/jpeg-to-pdf-converter/node_modules/make-dir/node_modules/semver/README.md1751086141169757822 0
 99/home/michael/jpeg-to-pdf-converter/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/chacha8.c1751085475721713591 0
@@ -5337,7 +5337,7 @@
 84/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/webvr.js1751085476449726843 0
 56/home/michael/jpeg-to-pdf-converter/node_modules/p-limit1751086141137757244 1
 67/home/michael/jpeg-to-pdf-converter/node_modules/jspdf/package.json1751085476017718980 0
-61/home/michael/jpeg-to-pdf-converter/dist/index.es.6720d133.js1751089881585302522 0
+61/home/michael/jpeg-to-pdf-converter/dist/index.es.6720d133.js1751090134501801965 0
 57/home/michael/jpeg-to-pdf-converter/node_modules/pako/lib1751085475621711771 1
 79/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/string/blink.js1751085476041719416 0
 108/home/michael/jpeg-to-pdf-converter/node_modules/pdfjs-dist/legacy/web/images/cursor-editorTextHighlight.svg1751085476985736599 0
@@ -5386,7 +5386,7 @@
 87/home/michael/jpeg-to-pdf-converter/node_modules/core-js/features/instance/unique-by.js1751085477133739293 0
 65/home/michael/jpeg-to-pdf-converter/node_modules/chalk/index.d.ts1751085475529710097 0
 97/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/runtime-js/src/helpers/get-worker-url.js1751085475617711699 0
-59/home/michael/jpeg-to-pdf-converter/dist/purify.a0c09f71.js1751089881585302522 0
+59/home/michael/jpeg-to-pdf-converter/dist/purify.a0c09f71.js1751090134293798239 0
 87/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/core/lib/public/BundleGraph.js1751085475797714975 0
 72/home/michael/jpeg-to-pdf-converter/node_modules/semver/functions/neq.js1751085475645712208 0
 67/home/michael/jpeg-to-pdf-converter/node_modules/core-js/es/reflect1751085477109738857 1
@@ -5525,7 +5525,7 @@
 90/home/michael/jpeg-to-pdf-converter/node_modules/pdfjs-dist/web/images/altText_spinner.svg1751085476977736453 0
 79/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/symbol/matcher.js1751085476933735652 0
 97/home/michael/jpeg-to-pdf-converter/node_modules/@swc/helpers/cjs/_initializer_warning_helper.cjs1751085475729713737 0
-75/home/michael/jpeg-to-pdf-converter/dist/jpeg-to-pdf-converter.12805123.css1751089881585302522 0
+75/home/michael/jpeg-to-pdf-converter/dist/jpeg-to-pdf-converter.12805123.css1751090134469801391 0
 76/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/runtime-rsc/LICENSE1751085475421708131 0
 69/home/michael/jpeg-to-pdf-converter/node_modules/json5/lib/require.js1751085475573710898 0
 78/home/michael/jpeg-to-pdf-converter/node_modules/utility-types/dist/index.d.ts1751085475605711480 0
@@ -6011,7 +6011,7 @@
 73/home/michael/jpeg-to-pdf-converter/node_modules/async/internal/filter.js1751086141209758543 0
 75/home/michael/jpeg-to-pdf-converter/node_modules/fs-extra/lib/copy/index.js1751086141177757966 0
 81/home/michael/jpeg-to-pdf-converter/node_modules/core-js/es/array/virtual/fill.js1751085476557728808 0
-132/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/refs/heads1751089404025087441 1
+132/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/refs/heads1751089987443177524 1
 70/home/michael/jpeg-to-pdf-converter/node_modules/json5/lib/register.js1751085475569710825 0
 81/home/michael/jpeg-to-pdf-converter/node_modules/core-js/es/typed-array/reduce.js1751085477001736891 0
 87/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/string/virtual/fixed.js1751085476613729828 0
@@ -6295,7 +6295,7 @@
 116/home/michael/jpeg-to-pdf-converter/node_modules/@msgpackr-extract/msgpackr-extract-linux-x64/node.abi115.glibc.node1751085475465708932 0
 78/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/profiler/lib/Trace.js1751085475513709806 0
 93/home/michael/jpeg-to-pdf-converter/node_modules/core-js/features/array/virtual/filter-out.js1751085476561728881 0
-127/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/index.html1751089403949086180 0
+127/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/index.html1751089987459177808 0
 96/home/michael/jpeg-to-pdf-converter/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/midl.h1751085475985718397 0
 103/home/michael/jpeg-to-pdf-converter/node_modules/@msgpackr-extract/msgpackr-extract-linux-x64/README.md1751085475433708350 0
 69/home/michael/jpeg-to-pdf-converter/node_modules/strip-outer/index.js1751086141145757389 0
@@ -6447,7 +6447,7 @@
 84/home/michael/jpeg-to-pdf-converter/node_modules/core-js/es/data-view/set-float16.js1751085477037737546 0
 76/home/michael/jpeg-to-pdf-converter/node_modules/utility-types/dist/index.js1751085475465708932 0
 76/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/bundler-default/lib1751085475429708277 1
-141/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/refs/remotes/origin1751089405773116459 1
+141/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/refs/remotes/origin1751089988439195225 1
 108/home/michael/jpeg-to-pdf-converter/node_modules/html2canvas/dist/lib/css/property-descriptors/line-break.js1751085476001718688 0
 88/home/michael/jpeg-to-pdf-converter/node_modules/core-js/proposals/string-code-points.js1751085477077738273 0
 108/home/michael/jpeg-to-pdf-converter/node_modules/pdfjs-dist/legacy/image_decoders/pdf.image_decoders.min.mjs1751085476689731211 0
@@ -6523,7 +6523,7 @@
 80/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/regions/GU.js1751085476153721455 0
 96/home/michael/jpeg-to-pdf-converter/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/midl.c1751085475853715994 0
 78/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/global-this.js1751085476705731502 0
-129/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects1751089404029087508 1
+129/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects1751089987411176955 1
 79/home/michael/jpeg-to-pdf-converter/node_modules/lmdb/dependencies/lmdb-data-v11751085475421708131 1
 80/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/instance/keys.js1751085476889734851 0
 105/home/michael/jpeg-to-pdf-converter/node_modules/lmdb/dependencies/lmdb-data-v1/libraries/liblmdb/CHANGES1751085475469709005 0
@@ -6538,7 +6538,7 @@
 101/home/michael/jpeg-to-pdf-converter/node_modules/html2canvas/dist/lib/core/__tests__/cache-storage.js1751085475793714902 0
 119/home/michael/jpeg-to-pdf-converter/node_modules/msgpackr-extract/node_modules/node-gyp-build-optional-packages/LICENSE1751085475421708131 0
 146/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/hooks/post-update.sample1751086900320719208 0
-171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/3b/251d0a786d931215147adbe06a64cfbb239c131751089403973086578 0
+171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/3b/251d0a786d931215147adbe06a64cfbb239c131751089987471178021 0
 112/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/source-map/parcel_sourcemap_wasm/dist-node/package.json1751085475661712500 0
 91/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/dom-collections/iterator.js1751085476873734560 0
 88/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/reflect/define-property.js1751085476213722547 0
@@ -6662,13 +6662,13 @@
 73/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/set/find.js1751085476605729682 0
 79/home/michael/jpeg-to-pdf-converter/node_modules/process-nextick-args/readme.md1751085475445708567 0
 84/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/webxr.js1751085476453726916 0
-135/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/purify.a0c09f71.js1751089403949086180 0
+135/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/purify.a0c09f71.js1751089987459177808 0
 67/home/michael/jpeg-to-pdf-converter/node_modules/get-port/readme.md1751085475477709151 0
 132/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/9e1751086903020787686 1
 84/home/michael/jpeg-to-pdf-converter/node_modules/core-js/features/instance/reduce.js1751085477001736891 0
 108/home/michael/jpeg-to-pdf-converter/node_modules/lmdb/dependencies/lz4/lib/dll/example/fullbench-dll.vcxproj1751085476053719635 0
-132/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/FETCH_HEAD1751089403777083326 0
-131/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/ORIG_HEAD1751089299467371956 0
+132/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/FETCH_HEAD1751089987351175888 0
+131/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/ORIG_HEAD1751089890793465073 0
 79/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/string/match.js1751085476933735652 0
 93/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/features/css-snappoints.js1751085476021719052 0
 96/home/michael/jpeg-to-pdf-converter/node_modules/core-js/modules/es.typed-array.last-index-of.js1751085476449726843 0
@@ -6722,7 +6722,7 @@
 90/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/array/virtual/to-sorted.js1751085477109738857 0
 70/home/michael/jpeg-to-pdf-converter/node_modules/run-parallel/index.js1751086141117756884 0
 81/home/michael/jpeg-to-pdf-converter/node_modules/jszip/lib/reader/StringReader.js1751085475785714757 0
-127/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/index1751089404025087441 0
+127/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/index1751089987475178092 0
 132/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/081751089404001087043 1
 61/home/michael/jpeg-to-pdf-converter/node_modules/async/all.js1751086141149757461 0
 86/home/michael/jpeg-to-pdf-converter/node_modules/core-js/internals/weak-set-helpers.js1751085477141739439 0
@@ -6736,7 +6736,7 @@
 81/home/michael/jpeg-to-pdf-converter/node_modules/pdfjs-dist/cmaps/GBT-EUC-V.bcmap1751085475805715121 0
 87/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/string/virtual/small.js1751085477057737910 0
 87/home/michael/jpeg-to-pdf-converter/node_modules/core-js/internals/parse-json-string.js1751085476973736380 0
-171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/88/4bfe7511d3a3e9157fda3d31fa1dd4c0d79e711751089404001087043 0
+171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/88/4bfe7511d3a3e9157fda3d31fa1dd4c0d79e711751089987475178092 0
 93/home/michael/jpeg-to-pdf-converter/node_modules/pdfjs-dist/web/images/altText_disclaimer.svg1751085476977736453 0
 100/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/workers/test/integration/workerfarm/echo.js1751085475621711771 0
 79/home/michael/jpeg-to-pdf-converter/node_modules/core-js/es/object/is-frozen.js1751085476845734051 0
@@ -6819,8 +6819,8 @@
 90/home/michael/jpeg-to-pdf-converter/node_modules/@swc/helpers/_/_create_super/package.json1751085476089720290 0
 88/home/michael/jpeg-to-pdf-converter/node_modules/@swc/helpers/_/_interop_require_default1751085476133721092 1
 87/home/michael/jpeg-to-pdf-converter/node_modules/core-js/features/iterator/zip-keyed.js1751085477149739585 0
-131/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/logs/HEAD1751089404025087441 0
-171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/08/12adff429a37da81f0b78da56c91f462375a7d1751089404001087043 0
+131/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/logs/HEAD1751089987443177524 0
+171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/08/12adff429a37da81f0b78da56c91f462375a7d1751089987475178092 0
 70/home/michael/jpeg-to-pdf-converter/node_modules/braces/lib/compile.js1751085475433708350 0
 89/home/michael/jpeg-to-pdf-converter/node_modules/core-js/features/instance/starts-with.js1751085477073738202 0
 155/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/logs/refs/remotes/origin/gh-pages1751089405773116459 0
@@ -6904,7 +6904,7 @@
 68/home/michael/jpeg-to-pdf-converter/node_modules/is-number/README.md1751085475449708640 0
 61/home/michael/jpeg-to-pdf-converter/node_modules/btoa/LICENSE1751085475453708713 0
 73/home/michael/jpeg-to-pdf-converter/node_modules/core-js/es/array/find.js1751085476597729536 0
-121/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git1751089404029087508 1
+121/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git1751089987487178306 1
 80/home/michael/jpeg-to-pdf-converter/node_modules/core-js/internals/math-trunc.js1751085476937735725 0
 87/home/michael/jpeg-to-pdf-converter/node_modules/@parcel/packager-js/src/.eslintrc.json1751085475657712427 0
 90/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/string/virtual/trim-right.js1751085477125739147 0
@@ -7933,7 +7933,7 @@
 87/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/instance/replace-all.js1751085477013737108 0
 93/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/async-disposable-stack/index.js1751085476789733031 0
 91/home/michael/jpeg-to-pdf-converter/node_modules/@swc/helpers/_/_object_spread/package.json1751085476165721674 0
-51/home/michael/jpeg-to-pdf-converter/dist/index.html1751089881585302522 0
+51/home/michael/jpeg-to-pdf-converter/dist/index.html1751090134917809416 0
 75/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/dom-exception1751085477109738857 1
 64/home/michael/jpeg-to-pdf-converter/node_modules/async/reject.js1751086141217758687 0
 77/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/set-interval.js1751085477041737618 0
@@ -8316,7 +8316,7 @@
 76/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/array/map.js1751085476909735216 0
 77/home/michael/jpeg-to-pdf-converter/node_modules/@swc/helpers/cjs/_update.cjs1751085475797714975 0
 88/home/michael/jpeg-to-pdf-converter/node_modules/core-js/modules/es.date.to-primitive.js1751085476349725023 0
-171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/10/674e11f612e1546ae94c417c20cf95bf916b591751089403973086578 0
+171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/10/674e11f612e1546ae94c417c20cf95bf916b591751089987471178021 0
 80/home/michael/jpeg-to-pdf-converter/node_modules/caniuse-lite/data/regions/US.js1751085476421726333 0
 76/home/michael/jpeg-to-pdf-converter/node_modules/core-js/full/promise/try.js1751085477129739220 0
 70/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/object1751085477141739439 1
@@ -8619,7 +8619,7 @@
 82/home/michael/jpeg-to-pdf-converter/node_modules/core-js/modules/es.math.fround.js1751085476369725386 0
 85/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/regexp/constructor.js1751085476165721674 0
 73/home/michael/jpeg-to-pdf-converter/node_modules/@mischnic/json-sourcemap1751085475425708204 1
-171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/0c/e282d11adeeb203394a3b151673ab9f62c54551751089403965086446 0
+171/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/.git/objects/0c/e282d11adeeb203394a3b151673ab9f62c54551751089987471178021 0
 90/home/michael/jpeg-to-pdf-converter/node_modules/core-js/actual/number/min-safe-integer.js1751085476941735798 0
 65/home/michael/jpeg-to-pdf-converter/node_modules/is-glob/index.js1751085475421708131 0
 80/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/regexp/sticky.js1751085477077738273 0
@@ -9034,7 +9034,7 @@
 77/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/math/clz32.js1751085476081720145 0
 87/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/typed-array/index-of.js1751085476753732376 0
 77/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/math/atanh.js1751085476005718761 0
-151/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/jpeg-to-pdf-converter.12805123.css1751089403949086180 0
+151/home/michael/jpeg-to-pdf-converter/node_modules/.cache/gh-pages/git@github.com!mjmiller41!jpeg-to-pdf-converter.git/jpeg-to-pdf-converter.12805123.css1751089987459177808 0
 76/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/math/sinh.js1751085477053737837 0
 89/home/michael/jpeg-to-pdf-converter/node_modules/lmdb/dependencies/v8/v8-fast-api-calls.h1751085475997718615 0
 77/home/michael/jpeg-to-pdf-converter/node_modules/core-js/stable/math/hypot.js1751085476733732012 0
