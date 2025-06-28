@@ -4,7 +4,7 @@
   "description": "A vanilla HTML, CSS, and JavaScript version of the JPEG to PDF converter.",
   "scripts": {
     "start": "npm run clean && parcel --port 4000",
-    "build": "npm run clean && parcel build --target deploy",
+    "build": "npm run clean && parcel build",
     "clean": "rm -rf dist/*",
     "deploy": "touch dist/.nojekyll && gh-pages -d dist"
   },
@@ -23,7 +23,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "targets": {
     "deploy": {
-      "publicUrl": "https://www.jpgtopdf.cloud/"
+      "sourceMap": false
     }
   }
 }
