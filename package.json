@@ -23,7 +23,11 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "targets": {
     "deploy": {
-      "sourceMap": false
+      "publicUrl": "/",
+      "sourceMap": false,
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
     }
   }
 }
